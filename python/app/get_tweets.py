@@ -41,7 +41,7 @@ class StreamListener(tweepy.StreamListener):
             text.replace(c," ")
             quoted_text.replace(c, " ")
 
-        #print(f"{status.created_at}-{status.user.screen_name},{is_retweet},{is_quote},{text}-{quoted_text}")
+        ##print(f"{status.created_at}-{status.user.screen_name},{is_retweet},{is_quote},{text}-{quoted_text}")
         newdict ={"status_id":status.id_str,"created_at": status.created_at,"user_screen_name":status.user.screen_name,"retweet":is_retweet,"text":text ,"quote":is_quote,"quoted_text":quoted_text}
 
         es.post_documents(newdict)
